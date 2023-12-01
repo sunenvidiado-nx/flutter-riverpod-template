@@ -30,9 +30,7 @@ class HomeScreen extends ConsumerWidget {
                     )
                   ],
                 ),
-                subtitle: item.thumbnail != null
-                    ? imageBuilder(item.thumbnail!)
-                    : null,
+                subtitle: _buildThumbnail(item.thumbnail),
               );
             },
           );
@@ -57,8 +55,10 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Widget imageBuilder(String url) {
-    if (!Uri.parse(url).isAbsolute) return const SizedBox.shrink();
+  Widget _buildThumbnail(String? url) {
+    if (url == null || !Uri.parse(url).isAbsolute) {
+      return const SizedBox.shrink();
+    }
 
     return Image.network(
       url,
@@ -66,7 +66,9 @@ class HomeScreen extends ConsumerWidget {
       height: 100,
       width: double.infinity,
       loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress == null) return child;
+        if (loadingProgress == null) {
+          return child;
+        }
 
         return const Center(
           child: CircularProgressIndicator.adaptive(),
