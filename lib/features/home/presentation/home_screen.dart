@@ -44,7 +44,7 @@ class HomeScreen extends ConsumerWidget {
         },
         error: (error, stackTrace) {
           return Center(
-            child: Text(error.toString()),
+            child: Text('$error'),
           );
         },
       ),
