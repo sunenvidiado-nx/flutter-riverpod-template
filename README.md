@@ -1,7 +1,7 @@
 # Flutter Riverpod Template
 
 <p align="center"> 
-  <img src="https://github.com/sunenvidiado-nx/flutter-riverpod-template/actions/workflows/main.yaml/badge.svg" height="20"/>
+  <img src="https://github.com/sunenvidiado-nx/flutter-riverpod-template/actions/workflows/test.yaml/badge.svg" height="20"/>
   <a href="https://codecov.io/gh/sunenvidiado-nx/flutter-riverpod-template" > 
     <img src="https://codecov.io/gh/sunenvidiado-nx/flutter-riverpod-template/branch/main/graph/badge.svg?token=PSV5VTSZAI"/> 
   </a>
