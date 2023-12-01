@@ -1,5 +1,15 @@
 # Flutter Riverpod Template
 
+<p align="center"> 
+  <img src="https://github.com/sunenvidiado-nx/flutter-riverpod-template/actions/workflows/main.yaml/badge.svg" height="20"/>
+  <a href="https://codecov.io/gh/sunenvidiado-nx/flutter-riverpod-template" > 
+    <img src="https://codecov.io/gh/sunenvidiado-nx/flutter-riverpod-template/branch/main/graph/badge.svg?token=PSV5VTSZAI"/> 
+  </a>
+  <img src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter" height="20">
+  <img src="https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase" height="20">
+  <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" height="20">
+</p>
+
 A Flutter app template demonstrating the use of Riverpod for state management. This template fetches and displays posts from the r/flutterdev subreddit to showcase app architecture and functionalities.
 
 ## Features 🚀
