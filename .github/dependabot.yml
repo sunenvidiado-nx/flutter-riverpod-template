@@ -1,10 +1,7 @@
 version: 2
-
+enable-beta-ecosystems: true
 updates:
   - package-ecosystem: "pub"
     directory: "/"
     schedule:
-      interval: "monthly"
-    open-new-prs: true
-    
-enable-beta-ecosystems: true
+      interval: monthly
