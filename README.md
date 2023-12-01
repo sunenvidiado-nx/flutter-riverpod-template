@@ -40,6 +40,6 @@ flutter_riverpod_template/
 
 ## License 📝
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [license](license) file for details.
 
 Feel free to customize this README according to your project's specifics. Good luck with your Flutter app development! 🌟
