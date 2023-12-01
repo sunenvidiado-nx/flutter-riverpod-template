@@ -28,7 +28,9 @@ jobs:
         run: flutter analyze .
 
       - name: Run tests
-        run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
+        run: |
+          flutter test --no-pub --coverage --test-randomize-ordering-seed random
+          flutter pub run remove_from_coverage -f coverage/lcov.info -r '\..*\.dart'
 
       - uses: codecov/codecov-action@v3
         env:
