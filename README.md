@@ -11,15 +11,15 @@
   <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" height="20">
 </p>
 
-A Flutter app template demonstrating the use of Riverpod for state management. This template fetches and displays posts from the r/flutterdev subreddit to showcase app architecture and functionalities.
+A Flutter app template demonstrating the use of Riverpod for state management. This template fetches and displays posts from the [`r/FlutterDev`](https://reddit.com/r/flutterdev) subreddit to showcase app architecture and functionalities.
 
 ## Features 🚀
 
-* **Efficient State Management**: Utilizes [`riverpod`](https://riverpod.dev) for streamlined and scalable state management within the app.
-* **Reddit Posts Display**: Fetches and exhibits posts from the [`r/flutterdev`](https://reddit.com/r/flutterdev) subreddit, providing a demonstration of fetching and showcasing data from an external API.
-* **Simplified Routing**: Utilizes [`go_router`](https://pub.dev/packages/go_router) for straightforward and adaptable navigation within the application.
+* **Efficient State Management with Dependency Injection**: Utilizes [`riverpod`](https://riverpod.dev) to seamlessly inject dependencies and maintain a clear, scalable state management architecture.
+* **Simplified Data Fetching**: Uses [`retrofit`](https://pub.dev/packages/retrofit) and [`dio`](https://pub.dev/packages/dio) for seamless data retrieval. Demonstrates practical data fetching with posts from r/FlutterDev
+* **Easy Routing**: Utilizes [`go_router`](https://pub.dev/packages/go_router) for straightforward and adaptable navigation within the application.
 * **Flutter Secure Storage**: Uses [`flutter_secure_storage`](https://pub.dev/packages/flutter_secure_storage) for secure and persistent storage of sensitive data.
-* **Structured Data Handling**: Implements [`freezed`](https://pub.dev/packages/freezed) and [`json_serializable`](https://pub.dev/packages/json_serializable) for organized and efficient handling of data models and JSON serialization.
+* **Structured Data Handling**: Utilizes [`freezed`](https://pub.dev/packages/freezed) and [`json_serializable`](https://pub.dev/packages/json_serializable) for organized and efficient handling of data models and JSON serialization.
 
 ## Folder Structure 📂
 
