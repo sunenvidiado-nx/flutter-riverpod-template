@@ -1,0 +1,44 @@
+name: Run tests
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: kuhnroyal/flutter-fvm-config-action@v2
+        id: fvm-config-action
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+          channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+
+      - name: Install project dependencies
+        run: fvm flutter pub get
+
+      - name: Run code generation
+        run: fvm flutter pub run build_runner build --delete-conflicting-outputs
+
+      - name: Check formatting
+        run: dart format --set-exit-if-changed .
+
+      - name: Run static analysis
+        run: fvm flutter analyze .
+
+      - name: Run tests
+        run: |
+          flutter test --no-pub --coverage --test-randomize-ordering-seed random
+          flutter pub run remove_from_coverage -f coverage/lcov.info -r '\..*\.dart'
+
+      - name: Publish coverage report
+        uses: codecov/codecov-action@v1.2.2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: coverage/lcov.info
+        
