@@ -1,11 +1,13 @@
 # Flutter Riverpod Template
 
 <p> 
-  <img src="https://github.com/sunenvidiado-nx/flutter-riverpod-template/actions/workflows/test.yaml/badge.svg" height="20"/>
-  <a href="https://codecov.io/gh/sunenvidiado-nx/flutter-riverpod-template" > 
-    <img src="https://codecov.io/gh/sunenvidiado-nx/flutter-riverpod-template/branch/main/graph/badge.svg?token=PSV5VTSZAI"/> 
+  <img src="https://github.com/sunenvidiado-nx/flutter-riverpod-template/actions/workflows/test.yaml/badge.svg"/>
+  <a href="https://codecov.io/gh/sunenvidiado-nx/flutter-riverpod-template" target="_blank"> 
+    <img src="https://img.shields.io/codecov/c/github/sunenvidiado-nx/flutter-riverpod-template"/> 
   </a>
-  <img src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter" height="20">
+  <a href="https://flutter.dev" target="_blank">
+    <img src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter" height="20">
+  </a>
   <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" height="20">
 </p>
 
@@ -13,11 +15,11 @@ A Flutter app template demonstrating the use of Riverpod for state management. T
 
 ## Features 🚀
 
-* **Efficient State Management**: Utilizes Riverpod for streamlined and scalable state management within the app.
-* **Reddit Posts Display**: Fetches and exhibits posts from the r/flutterdev subreddit, providing a demonstration of fetching and showcasing data from an external API.
-* **Simplified Routing**: Utilizes GoRouter for straightforward and adaptable navigation within the application.
-* **Flutter Secure Storage**: Uses Flutter Secure Storage for secure and persistent storage of sensitive data.
-* **Structured Data Handling**: Implements Freezed and JSON Serializable for organized and efficient handling of data models and JSON serialization.
+* **Efficient State Management**: Utilizes [`riverpod`](https://riverpod.dev) for streamlined and scalable state management within the app.
+* **Reddit Posts Display**: Fetches and exhibits posts from the [`r/flutterdev`](https://reddit.com/r/flutterdev) subreddit, providing a demonstration of fetching and showcasing data from an external API.
+* **Simplified Routing**: Utilizes [`go_router`](https://pub.dev/packages/go_router) for straightforward and adaptable navigation within the application.
+* **Flutter Secure Storage**: Uses [`flutter_secure_storage`](https://pub.dev/packages/flutter_secure_storage) for secure and persistent storage of sensitive data.
+* **Structured Data Handling**: Implements [`freezed`](https://pub.dev/packages/freezed) and [`json_serializable`](https://pub.dev/packages/json_serializable) for organized and efficient handling of data models and JSON serialization.
 
 ## Folder Structure 📂
 
