@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod_template/core/api_providers/dio_providers.dart';
+import 'package:flutter_riverpod_template/features/home/presentation/home_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
@@ -17,6 +18,18 @@ void main() {
   });
 
   group('HomeScreen', () {
+    testWidgets(
+      'should be shown when going to the "/" route',
+      (tester) async {
+        await tester.pumpRoute(
+          '/',
+          overrides: [baseDioProvider.overrideWithValue(dio)],
+        );
+
+        expect(find.byType(HomeScreen), findsOneWidget);
+      },
+    );
+
     testWidgets(
       'should display a list of posts',
       (tester) async {
