@@ -1,56 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod_template/features/home/application/home_notifier.dart';
+import 'package:flutter_riverpod_template/features/home/application/recent_posts_provider.dart';
+import 'package:flutter_riverpod_template/features/home/domain/recent_post.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(homeNotifierProvider);
+    final state = ref.watch(recentPostsProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('r/FlutterDev'),
       ),
       body: state.when(
-        data: (data) {
-          return ListView.builder(
-            itemCount: data.length,
-            itemBuilder: (context, index) {
-              final item = data[index].data;
-              return ListTile(
-                title: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(item.title),
-                    Text(
-                      item.authorFullname,
-                      style: const TextStyle(fontSize: 12),
-                    )
-                  ],
-                ),
-                subtitle: _buildThumbnail(item.thumbnail),
-              );
-            },
-          );
-        },
-        loading: () {
-          return const Center(
-            child: CircularProgressIndicator.adaptive(),
-          );
-        },
-        error: (error, stackTrace) {
-          return Center(
-            child: Text('$error'),
-          );
-        },
+        data: (posts) => ListView.separated(
+          itemCount: posts.length,
+          separatorBuilder: (context, index) => const Divider(),
+          itemBuilder: (context, index) {
+            final post = posts[index];
+            return _buildListItem(post.data);
+          },
+        ),
+        error: (error, stackTrace) => Center(
+          child: Text('$error'),
+        ),
+        loading: () => const Center(
+          child: CircularProgressIndicator.adaptive(),
+        ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          ref.read(homeNotifierProvider.notifier).loadNextPage();
-        },
-        label: const Text('Next Page'),
+    );
+  }
+
+  Widget _buildListItem(RecentPost post) {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            post.title,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text('by ${post.authorFullname}'),
+          _buildThumbnail(post.thumbnail),
+        ],
       ),
     );
   }
@@ -60,20 +58,23 @@ class HomeScreen extends ConsumerWidget {
       return const SizedBox.shrink();
     }
 
-    return Image.network(
-      url,
-      fit: BoxFit.cover,
-      height: 100,
-      width: double.infinity,
-      loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress == null) {
-          return child;
-        }
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Image.network(
+        url,
+        fit: BoxFit.cover,
+        height: 100,
+        width: double.infinity,
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) {
+            return child;
+          }
 
-        return const Center(
-          child: CircularProgressIndicator.adaptive(),
-        );
-      },
+          return const Center(
+            child: CircularProgressIndicator.adaptive(),
+          );
+        },
+      ),
     );
   }
 }
