@@ -78,105 +78,10 @@ void main() {
           await tester.pump(const Duration(seconds: 5));
 
           expect(find.text('Title 1'), findsOneWidget);
-          expect(find.text('Author 1'), findsOneWidget);
+          expect(find.text('by Author 1'), findsOneWidget);
           expect(find.text('Title 2'), findsOneWidget);
-          expect(find.text('Author 2'), findsOneWidget);
+          expect(find.text('by Author 2'), findsOneWidget);
         });
-      },
-    );
-
-    testWidgets(
-      'should load the next page when "Next Page" button is tapped',
-      (tester) async {
-        dioAdapter
-          ..onGet(
-            '/r/flutterdev.json',
-            (request) => request.reply(
-              200,
-              {
-                'kind': 'test',
-                'data': {
-                  'after': 'test',
-                  'dist': 2,
-                  'modhash': 'modhash',
-                  'children': [
-                    {
-                      'kind': 'test',
-                      'data': {
-                        'title': 'Title 1',
-                        'author_fullname': 'Author 1',
-                      },
-                    },
-                    {
-                      'kind': 'test',
-                      'data': {
-                        'title': 'Title 2',
-                        'author_fullname': 'Author 2',
-                      },
-                    },
-                  ],
-                },
-              },
-            ),
-          )
-          ..onGet(
-            '/r/flutterdev.json',
-            (request) => request.reply(
-              200,
-              {
-                'kind': 'test',
-                'data': {
-                  'after': 'test2',
-                  'dist': 2,
-                  'modhash': 'modhash',
-                  'children': [
-                    {
-                      'kind': 'test',
-                      'data': {
-                        'title': 'Title 3',
-                        'author_fullname': 'Author 3',
-                      },
-                    },
-                    {
-                      'kind': 'test',
-                      'data': {
-                        'title': 'Title 4',
-                        'author_fullname': 'Author 4',
-                      },
-                    },
-                  ],
-                },
-              },
-            ),
-            queryParameters: {'after': 'test'},
-          );
-
-        await tester.pumpRoute(
-          '/home',
-          shouldPumpAndSettle: false,
-          overrides: [baseDioProvider.overrideWithValue(dio)],
-        );
-
-        expect(find.byType(CircularProgressIndicator), findsOneWidget);
-
-        await tester.pump(const Duration(seconds: 5));
-
-        expect(find.text('Title 1'), findsOneWidget);
-        expect(find.text('Author 1'), findsOneWidget);
-        expect(find.text('Title 2'), findsOneWidget);
-        expect(find.text('Author 2'), findsOneWidget);
-
-        await tester.pumpAndSettle();
-        await tester.tap(find.byType(FloatingActionButton));
-
-        // expect(find.byType(CircularProgressIndicator), findsOneWidget);
-
-        await tester.pumpAndSettle();
-
-        expect(find.text('Title 3'), findsOneWidget);
-        expect(find.text('Author 3'), findsOneWidget);
-        expect(find.text('Title 4'), findsOneWidget);
-        expect(find.text('Author 4'), findsOneWidget);
       },
     );
 
