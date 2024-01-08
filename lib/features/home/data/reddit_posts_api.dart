@@ -4,20 +4,17 @@ import 'package:flutter_riverpod_template/core/api_providers/dio_providers.dart'
 import 'package:flutter_riverpod_template/features/home/domain/recent_posts_response.dart';
 import 'package:retrofit/retrofit.dart';
 
-part 'get_recent_posts_use_case.g.dart';
+part 'reddit_posts_api.g.dart';
 
 @RestApi()
-abstract class GetRecentPostsUseCase {
-  factory GetRecentPostsUseCase(Dio dio) = _GetRecentPostsUseCase;
+abstract class RedditPostsApi {
+  factory RedditPostsApi(Dio dio) = _RedditPostsApi;
 
   @GET('/r/flutterdev.json')
-  Future<RecentPostsResponse> run({
-    @Query('after') String? after,
-    @Query('before') String? before,
-  });
+  Future<RecentPostsResponse> getRecentPosts();
 }
 
-final getRecentPostsUseCaseProvider = Provider.autoDispose((ref) {
+final redditPostsApiProvider = Provider.autoDispose((ref) {
   final dio = ref.read(redditDioProvider);
-  return GetRecentPostsUseCase(dio);
+  return RedditPostsApi(dio);
 });
