@@ -15,7 +15,7 @@ dependencies:
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
   dio: ^5.4.1
-  go_router: ^13.1.0
+  go_router: ^14.0.2
   retrofit: ^4.0.3
   retrofit_generator: ^8.1.0
   flutter_secure_storage: ^9.0.0
