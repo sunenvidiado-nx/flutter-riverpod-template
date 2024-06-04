@@ -15,11 +15,9 @@ extension PumpRouteX on WidgetTester {
     String route, {
     List<Override> overrides = const [],
     bool shouldPumpAndSettle = true,
-    ProviderContainer? container,
   }) async {
     await pumpWidget(
       ProviderScope(
-        parent: container,
         overrides: [
           ...overrides,
           initialRouteProvider.overrideWithValue(route),
