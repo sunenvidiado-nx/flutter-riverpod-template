@@ -5,9 +5,9 @@
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
     "readme.*": "authors, changelog*, citation*, codeowners, contributors, copying, credits, license*, maintainers, readme*",
     "pubspec.yaml": "pubspec.lock, *.yaml, *.yml",
-    "*.dart": "$(capture).*.dart",
+    "*.dart": "$(capture).*.dart"
   },
-  "dart.flutterSdkPath": ".fvm/flutter_sdk",
+  "dart.flutterSdkPath": ".fvm/versions/3.22.0",
   "search.exclude": {
     "**/.fvm": true
   },
