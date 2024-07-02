@@ -29,7 +29,7 @@ dev_dependencies:
   freezed: ^2.4.7
   json_serializable: ^6.7.1
   http_mock_adapter: ^0.6.1
-  mocktail_image_network: ^1.1.0
+  mocktail_image_network: ^1.2.0
   mocktail: ^1.0.4
   remove_from_coverage: ^2.0.0
 
